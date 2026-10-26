@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>내 첫번째 아이디어 - My First Idea</title>
+  <meta name="description" content="위대한 모든 여정의 시작, 당신의 첫 번째 영감을 기록하고 펼쳐보세요.">
+
+  <!-- Google Fonts: Outfit & Noto Sans KR -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="sapphire">
+  <!-- Interactive Canvas Background -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Ambient Glow Elements -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="ambient-glow glow-3"></div>
+
+  <!-- Cursor Light Follower -->
+  <div id="cursor-glow" class="cursor-glow"></div>
+
+  <!-- Header Controls -->
+  <header class="app-header">
+    <div class="badge-brand">
+      <span class="pulsing-dot"></span>
+      <span class="brand-text">Creative Genesis</span>
+    </div>
+    <div class="header-actions">
+      <button id="theme-btn" class="icon-btn" title="블루 테마 분위기 전환" aria-label="테마 변경">
+        <span class="btn-icon">💎</span>
+        <span class="btn-label" id="theme-label">Sapphire Blue</span>
+      </button>
+      <button id="sound-btn" class="icon-btn" title="사운드 효과 켜기/끄기" aria-label="사운드 토글">
+        <span class="btn-icon" id="sound-icon">🔔</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Viewport Centerpiece -->
+  <main class="main-container">
+    <div class="card-wrapper" id="card-wrapper">
+      <div class="glass-card" id="glass-card">
+        <!-- Card Hologram Effect Highlights -->
+        <div class="card-highlight"></div>
+        <div class="card-border-glow"></div>
+
+        <div class="card-content">
+          <!-- Tag / Badge -->
+          <div class="category-tag">
+            <span class="tag-icon">✦</span>
+            <span class="tag-text">SPARK OF CREATION</span>
+            <span class="tag-icon">✦</span>
+          </div>
+
+          <!-- Main Sentence Target -->
+          <h1 id="main-title" class="main-title">
+            <span class="gradient-text">내 첫번째 아이디어</span>
+          </h1>
+
+          <p class="subtitle" id="subtitle">
+            모든 위대한 여정은 하나의 작은 영감에서 시작됩니다.
+          </p>
+
+          <!-- Interactive Action Buttons -->
+          <div class="action-group">
+            <button id="spark-btn" class="primary-btn">
+              <span class="btn-sparkle">✨</span>
+              <span>영감 불꽃 피우기</span>
+            </button>
+            <button id="memo-btn" class="secondary-btn">
+              <span>💡 생각 기록하기</span>
+            </button>
+          </div>
+
+          <!-- Live Idea Preview if saved -->
+          <div id="saved-idea-container" class="saved-idea-container hidden">
+            <div class="saved-idea-label">기록된 첫 번째 아이디어</div>
+            <p id="saved-idea-text" class="saved-idea-text"></p>
+            <button id="edit-idea-btn" class="text-btn">수정하기</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal: Write your first idea -->
+  <div id="memo-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2 id="modal-title" class="modal-heading">💡 첫 번째 아이디어 남기기</h2>
+        <button id="close-modal-btn" class="close-btn" aria-label="닫기">&times;</button>
+      </div>
+      <p class="modal-desc">머릿속을 스쳐가는 소중한 생각이나 목표를 적어보세요.</p>
+      
+      <form id="idea-form">
+        <textarea 
+          id="idea-input" 
+          class="idea-textarea" 
+          rows="4" 
+          maxlength="200" 
+          placeholder="예: 사람들에게 따뜻한 위로를 주는 작은 미니멀 앱 만들기..."
+          required
+        ></textarea>
+        
+        <div class="modal-footer">
+          <span id="char-count" class="char-count">0 / 200</span>
+          <div class="modal-btns">
+            <button type="button" id="cancel-btn" class="secondary-btn">취소</button>
+            <button type="submit" class="primary-btn">영구 저장하기</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Notification Toast -->
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
